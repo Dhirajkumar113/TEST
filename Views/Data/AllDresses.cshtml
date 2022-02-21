@@ -1,0 +1,44 @@
+﻿@model List<Test.Models.Dress>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AllDresses</title>
+</head>
+<body>
+    <h1>DRESS DETAILS</h1>
+    <hr />
+    <nav>
+        @Html.ActionLink("ADD New", "AddDresses")
+    </nav>
+    <h1>List of Dresses With Us!!!</h1>
+    <hr />
+    <div>
+        <table border="1">
+            <tr>
+                <th>Dress ID</th>
+                <th>Dress Name</th>
+                <th>Dress Design</th>
+                <th>Dress Price</th>
+                <th>Options</th>
+            </tr>
+            @foreach (var drs in Model) 
+            {
+                <tr>
+                    <td>@drs.drsId</td>
+                    <td>@drs.drsName</td>
+                    <td>@drs.drsDesign</td>
+                    <td>@drs.drsPrice</td>
+                    <td>@Html.ActionLink("Edit", "OnEdit", new { id = drs.drsId })</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

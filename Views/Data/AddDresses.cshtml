@@ -1,0 +1,41 @@
+﻿@model Test.Models.Dress
+
+@{
+    Layout = null;
+    List<SelectListItem> depts = new List<SelectListItem>();
+    if (ViewBag.Designs != null)
+    {
+        Design = ViewBag.Designs as List<SelectListItem>;
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddDress</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Add new Dress to the System</h1>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <p>Enter the DressName: @Html.EditorFor((m) => m.drsName)</p>
+        <p>Enter the Design: @Html.EditorFor((m) => m.drsDesign)</p>
+        <p>Enter the Price: @Html.EditorFor((m) => m.drsPrice)</p>
+        <p>Select the Design: @Html.DropDownListFor((m) => m.DesignId, Design)</p>
+        <p><button>Save Changes</button></p>
+    }
+    <div>
+        @if (ViewBag.Message != null)
+        {
+            <span style="color:red">@ViewBag.Message</span>
+        }
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "AllDress")
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@model Test.Models.Dress
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+    <div>
+        <h1>Details of Dress@Model.drsName</h1>
+        @using (Html.BeginForm())
+        {
+            <p>
+                @Html.LabelFor((m) => m.drsId)
+                @Html.TextBoxFor((m) => m.drsId)
+            </p>
+
+            <p>
+                @Html.LabelFor((m) => m.drsName)
+                @Html.TextBoxFor((m) => m.drsName)
+            </p>
+
+            <p>
+                @Html.LabelFor((m) => m.drsDesign)
+                @Html.TextBoxFor((m) => m.drsDesign)
+            </p>
+
+            <p>
+                @Html.LabelFor((m) => m.drsPrice)
+                @Html.TextBoxFor((m) => m.drsPrice)
+            </p>
+
+            <button>Save Changes</button>
+        }
+    </div>
+</body>
+</html>
